@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>  
+</head>
+<body>
+  <div class="home-navi"> 
+    <nav>
+      <a (click)="selectedSection = 'intro'">Introduction</a>
+      <a (click)="selectedSection = 'process'">Process</a>
+      <a (click)="selectedSection = 'about'">About</a>
+      <a (click)="selectedSection = 'contact'">Contact</a>  
+    </nav>
+  </div>
+
+  <div class="home-content">
+    <div *ngIf="selectedSection === 'intro'">
+      <img class="homepage_img" src="../../assets/home_img.jpg" alt="Introduction Image">
+      <p class="intro">Welcome to Our Fingerprint Authorization System. Simplifying attendance tracking with biometric authentication for accuracy and security. Integrated seamlessly with our Automatic Payroll System for precise and timely compensation. Optimizing efficiency while ensuring robust security measures.</p>
+    </div>
+   
+    <div *ngIf="selectedSection === 'process'" class="process">
+       <figure>
+        <figcaption>Step:1</figcaption>
+        <img src="../../assets/test_1.jpg" alt="Process Image">
+      </figure>
+      <figure>
+        <figcaption>Step:2</figcaption>
+        <img src="../../assets/home_img.jpg" alt="Process Image">
+      </figure>    
+      <figure>
+        <figcaption>Step:3</figcaption>
+        <img src="../../assets/attendance_fake_img.png" alt="Process Image">
+      </figure>    
+      <figure>
+        <figcaption>Step:4</figcaption>
+        <img src="../../assets/payroll_fake_img.jpg" alt="Process Image">
+      </figure>            
+      <p>This is the content for the Process section.</p>
+    </div>
+   
+    <div *ngIf="selectedSection === 'about'">
+      
+      <p>This is the content for the About section.</p>
+    </div>
+    <div *ngIf="selectedSection === 'contact'">
+  
+      <p>This is the content for the Contact section.</p>
+    </div>
+    </div>
+</body>
+</html>

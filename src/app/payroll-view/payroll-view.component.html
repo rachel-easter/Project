@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form [formGroup]="payrollForm" (ngSubmit)="generatePayslip()">
+        <div class="form-group">
+          <label for="employeeId">Employee ID:</label>
+          <input type="text" formControlName="employeeId" id="employeeId">
+        </div>
+        <div class="form-group">
+          <label for="month">Month:</label>
+          <input type="month" formControlName="month" id="month">
+        </div>
+        <button type="submit">Generate Payslip</button>
+      </form>
+      
+      <div *ngIf="payslipData">
+        <!-- Display payslip data here -->
+      </div>
+      
+    </body>
+</html>
