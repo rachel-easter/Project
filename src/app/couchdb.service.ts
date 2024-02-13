@@ -1,21 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
-export class CouchdbService {
-  generatePayslip(employeeId: number, month: DataView) {
-    throw new Error('Method not implemented.');
-  }
+export class CouchDBService {
   
-  private baseURL = 'http://localhost:5984'; // CouchDB URL
-  private baseUrl = 'http://localhost:5984/employee';  
+  private baseURL = 'http://127.0.0.1:5984';
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + btoa('admin:admin') 
+    })
+  };
 
   constructor(private http: HttpClient) { }
 
-  getPayslip(employeeId: number, month: string): Observable<any> {
-    return this.http.get<any>(`${this.baseURL}/employee/${employeeId}/${month}`);
+  getEmployeeByName(employeeName: string): Observable<any> {
+    const selector = {
+      selector: {
+        employeeName: employeeName
+      }
+    };
+    return this.http.post<any>(`${this.baseURL}/employee/_find`, selector, this.httpOptions);
   }
-  
 }

@@ -11,7 +11,6 @@ import { PayrollViewComponent } from './payroll-view/payroll-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +24,8 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,  
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

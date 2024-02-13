@@ -6,14 +6,14 @@
   <title>Home</title>  
 </head>
 <body>
-  <div class="home-navi"> 
-    <nav>
+ 
+    <nav class="horizontal-nav">
       <a (click)="selectedSection = 'intro'">Introduction</a>
       <a (click)="selectedSection = 'process'">Process</a>
       <a (click)="selectedSection = 'about'">About</a>
       <a (click)="selectedSection = 'contact'">Contact</a>  
     </nav>
-  </div>
+ 
 
   <div class="home-content">
     <div *ngIf="selectedSection === 'intro'">

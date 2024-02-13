@@ -10,29 +10,32 @@ body{
   }
  
 }
-.home-navi{
-  float: left; 
-    margin-top:0px;
-    background: linear-gradient(to bottom right, rgb(132, 128, 189), rgb(63, 191, 191));
-    box-shadow: 0 0 10px rgba(187, 16, 16, 0.2);
-    height:600px;
-    width:200px;
-    left:0px;
-    overflow: hidden;      
-    
+.horizontal-nav {
+  background-color: #0e0658; /* Set background color */
+  overflow: hidden; /* Hide overflowing content */
 }
 
-nav a {
-    display: block; 
-    color: white; 
-    padding: 50px 50px ; 
-    text-decoration: none; 
-  }
-  
- 
-  nav a:hover {
-    background-color: #dde019; 
-  }
+.horizontal-nav a {
+  float: left; /* Float the links to the left */
+  display: block; /* Display as block elements */
+  color: white; /* Set text color */
+  text-align: center; /* Center align text */
+  padding: 20px; /* Add padding */
+  text-decoration: none;
+  margin-left:200px ;  /* Remove underline */
+}
+
+
+.horizontal-nav a:hover {
+  background-color: #4398dd; /* Change background color on hover */
+}
+
+/* Optional: Add active class to current link */
+.horizontal-nav a.active {
+  background-color: #4caf50; /* Set active link background color */
+  color: white; /* Set active link text color */
+}
+
 
   .homepage_img{
     display:block;
@@ -44,10 +47,14 @@ nav a {
   width:50vw;
   height:100vh;
   top:0px;
+  color:rgb(95, 11, 11);
 }
 .home-content {
  
   margin-left: 400px; 
+}
+.home p{
+  float:left;
 }
 .process img{  
   width:120px;
