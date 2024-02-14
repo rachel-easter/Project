@@ -1,1 +1,29 @@
-<p>login works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="name">Username:</label>
+          <input type="text" id="username" formControlName="name">
+          <div *ngIf="isFormSubmitted && loginForm.get('name')?.invalid" class="error-message">
+            Please enter a username.
+          </div>
+        </div>
+        <div>
+          <label for="id">Password:</label>
+          <input type="number" id="password" formControlName="id">
+          <div *ngIf="isFormSubmitted && loginForm.get('id')?.invalid" class="error-message">
+            Please enter a password.
+          </div>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      
+    
+</body>
+</html>

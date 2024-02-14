@@ -10,7 +10,11 @@ import { AttendanceDashboardComponent } from './attendance-dashboard/attendance-
 import { PayrollViewComponent } from './payroll-view/payroll-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
+import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './login/login.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,10 +23,12 @@ import { LoginComponent } from './login/login.component';
     AttendanceDashboardComponent,
     PayrollViewComponent,
     LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AdminModule,
     HttpClientModule,
     ReactiveFormsModule,  
   

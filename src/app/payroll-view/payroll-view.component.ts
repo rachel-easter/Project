@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
-import { CouchDBService } from '../couchdb.service';
+import { CouchDBService } from 'src/app/service/couchdb.service';
 import{RxwebValidators, json} from '@rxweb/reactive-form-validators';
 import { saveAs } from 'file-saver';
 @Component({
