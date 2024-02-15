@@ -15,6 +15,9 @@ export class UserAuthenticationService {
     // Add any other headers you need for authentication
   });
 
+  
+
+
   constructor(private http: HttpClient) {}
 
   login(name: string, id: number): Observable<boolean> {
@@ -23,8 +26,9 @@ export class UserAuthenticationService {
         const employees = document.employees || [];
 
         // Check if the provided username and password match any user in the employees array
-        const isValidUser = employees.some((employee: any) => employee.name === name && employee.id=== id);
-
+        const isValidUser = employees.some((employee: any) => 
+        employee.name.trim().toLowerCase() === name.trim().toLowerCase() && employee.id=== id);
+        
         return isValidUser;
       }),
       catchError((error) => {
@@ -32,5 +36,16 @@ export class UserAuthenticationService {
         return of(false);
       })
     );
+  } 
+  isLoggedIn(): boolean {
+    const isLoggedIn = !!localStorage.getItem('isLoggedIn');
+  console.log('Is user logged in?', isLoggedIn);
+  return isLoggedIn;
+  }
+  setloggedIn(): void {
+    localStorage.setItem('isLoggeIn', 'true');
+  }
+  logout(): void {
+    localStorage.removeItem('isLoggedIn');
   }
 }

@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+ /* *{
+    outline: 1px solid red !important;
+}  */
+
+
+body{
+    margin:0;
+    padding:0;
+}

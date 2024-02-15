@@ -1,12 +1,11 @@
 <body>  
-  <div class="top-nav">
-   
+  <div class="top-nav">   
         <a routerLink="/home">HOME</a>
         <a routerLink="/attendance">ATTENDANCE</a>
         <a routerLink="/payroll">PAYROLL</a>
         <a routerLink="/notification">NOTIFICATION</a>  
-        <a routerLink="/login">LOGIN</a>  
-      
-  </div>
-  
+        <!--<a routerLink="/login">LOGIN</a> -->
+        <a [style.display]="isLoggedIn() ? 'none' : 'inline-block'" routerLink="/login">LOGIN</a>
+  <button [style.display]="isLoggedIn() ? 'inline-block' : 'none'" (click)="logout()">LOGOUT</button>     
+  </div>  
 </body>

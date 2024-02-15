@@ -6,24 +6,31 @@
     <title>Login</title>
 </head>
 <body>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form">
+        <h2>LOGIN</h2>
+        <div class="innerform">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+       
         <div>
-          <label for="name">Username:</label>
-          <input type="text" id="username" formControlName="name">
+          <label for="name">Username</label><br>
+          <i class="login__icon fas fa-user"></i>
+          <input type="text" id="username" formControlName="name" placeholder="Enter the Employee's Name">
           <div *ngIf="isFormSubmitted && loginForm.get('name')?.invalid" class="error-message">
             Please enter a username.
           </div>
         </div>
         <div>
-          <label for="id">Password:</label>
-          <input type="number" id="password" formControlName="id">
+          <label for="id">Password</label><br>
+          <i class="login__icon fas fa-lock"></i>
+          <input type="number" id="password" formControlName="id" placeholder="Enter the Employee's Id">
           <div *ngIf="isFormSubmitted && loginForm.get('id')?.invalid" class="error-message">
             Please enter a password.
           </div>
         </div>
-        <button type="submit">Login</button>
-      </form>
-      
-    
-</body>
+        <button type="submit">LOGIN</button>
+    </form> 
+    </div> 
+    </div>
+    </body>
 </html>
