@@ -6,6 +6,6 @@
         <a routerLink="/notification">NOTIFICATION</a>  
         <!--<a routerLink="/login">LOGIN</a> -->
         <a [style.display]="isLoggedIn() ? 'none' : 'inline-block'" routerLink="/login">LOGIN</a>
-  <button [style.display]="isLoggedIn() ? 'inline-block' : 'none'" (click)="logout()">LOGOUT</button>     
+  <button [style.display]="isLoggedIn() ? 'inline-block' : 'none'" (click)="logout()" class="logout">LOGOUT</button>     
   </div>  
 </body>

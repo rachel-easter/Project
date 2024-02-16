@@ -20,7 +20,7 @@ export class UserAuthenticationService {
 
   constructor(private http: HttpClient) {}
 
-  login(name: string, id: number): Observable<boolean> {
+  login(name: string, id: string): Observable<boolean> {
     return this.http.get<any>(this.apiUrl, { headers: this.headers }).pipe(
       map((document: any) => {
         const employees = document.employees || [];

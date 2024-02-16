@@ -1,0 +1,24 @@
+.top-nav {
+    background: linear-gradient(to bottom right, #0c1eb8, #1bebc8);
+    height: 50px;  
+    top: 0;
+    left: 0;     
+   
+  }
+  
+  a {
+    color: black;
+    padding-right: 100px;
+    margin-left: 50px;
+    font-size: 1.5rem;
+    text-decoration: none;
+   
+    
+  }
+  
+  a:hover {
+    color: brown;
+  }
+  
+
+  

@@ -15,17 +15,23 @@
         <div>
           <label for="name">Username</label><br>
           <i class="login__icon fas fa-user"></i>
-          <input type="text" id="username" formControlName="name" placeholder="Enter the Employee's Name">
+          <input type="text" id="username" formControlName="name" placeholder="Enter the Employee's Name" class="inputtext" (input)="onNameInput($event)">
+          <div>
+            <div *ngIf="nameContainsNumber" class="error-message">
+              <p> Only alphabets are allowed</p>
+            </div>  
           <div *ngIf="isFormSubmitted && loginForm.get('name')?.invalid" class="error-message">
-            Please enter a username.
+            <p>Please enter a username</p>
+          </div>
           </div>
         </div>
         <div>
           <label for="id">Password</label><br>
           <i class="login__icon fas fa-lock"></i>
-          <input type="number" id="password" formControlName="id" placeholder="Enter the Employee's Id">
+          <input type="password" id="password" formControlName="id" placeholder="Enter the Employee's Id" class="inputtext">
+          <input class ="checkbox"type="checkbox" (change)="myFunction()">
           <div *ngIf="isFormSubmitted && loginForm.get('id')?.invalid" class="error-message">
-            Please enter a password.
+            <p>Please enter a password</p>
           </div>
         </div>
         <button type="submit">LOGIN</button>

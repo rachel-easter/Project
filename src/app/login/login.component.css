@@ -15,7 +15,7 @@
     box-shadow: 0 15px 35px rgba(0,0,0,9)
 }
 
-input{
+.inputtext{
     padding:10px;
     width:300px; 
     background: transparent;
@@ -25,6 +25,12 @@ input{
     border-color: black; 
     
 }
+.checkbox{
+    position:absolute;
+    
+   
+}
+
 ::placeholder{
     color:rgb(181, 238, 245);
     text-align: justify;
@@ -35,7 +41,7 @@ input{
     position:absolute;
     margin-left:70px;
     width:400px;
-    height:300px;
+    height:400px;
     border-radius: 20px;
     text-align: justify;
     line-height: 1cm;
@@ -54,6 +60,7 @@ button{
     width:200px;
     font-family: sans-serif;
     color: white;
+    display:fixed;
     
 }
 h2{
@@ -67,4 +74,7 @@ h2{
 	position: absolute;
 	top: 30px;
 	color: #020113;
+}
+p{
+    color:red;
 }

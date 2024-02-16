@@ -7,21 +7,37 @@
 </head>
 <body>
     <app-admin-dashboard></app-admin-dashboard>
-    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
-        <label for="name">Employee Name:</label>
-        <input type="text" id="name" formControlName="name" required>
-        <div *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched">
-          Name is required
-        </div>
-      
-        <label for="id">Employee ID:</label>
-        <input type="number" id="id" formControlName="id" required>
+    <div class="outer"> 
+      <h2>ENROLLMENT</h2>     
+      <div class="fingerprint">
+        <button class="capture" type="button">Capture</button>
+            <button class="reset" type="button">Reset</button>
+      </div>      
+       <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <label for="name">Employee Name</label>
+        <br>
+        <input type="text" id="name" formControlName="name" placeholder="Enter the Name"required (input)="onNameInput($event)">
+        <div>
+          <div *ngIf="nameContainsNumber" class="error-message">
+            <p> Only alphabets are allowed</p>
+          </div>       
+          <div *ngIf="employeeForm.get('name')?.errors?.['required'] && employeeForm.get('name')?.touched">
+            <p>Name is required</p>
+          </div>
+        </div>                   
+     <br>
+        <label for="id">Employee ID</label>
+        <br>
+        <input type="digit" id="id" formControlName="id" placeholder="Enter the ID" required>
         <div *ngIf="employeeForm.get('id')?.invalid && employeeForm.get('id')?.touched">
-          Position is required
+         <p>ID is required</p>
         </div>
-      
-        <button type="submit" [disabled]="employeeForm.invalid">Enroll</button>
+      <br>
+        <button class="enrollbutton" type="submit" [disabled]="employeeForm.invalid">ENROLL</button>
+
       </form>
-      
+     </div>
+    
+
 </body>
 </html>
