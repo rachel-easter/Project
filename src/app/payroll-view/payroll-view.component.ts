@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { CouchDBService } from 'src/app/service/couchdb.service';
 import{RxwebValidators, json} from '@rxweb/reactive-form-validators';
 import { saveAs } from 'file-saver';
+import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-payroll-view',
   templateUrl: './payroll-view.component.html',

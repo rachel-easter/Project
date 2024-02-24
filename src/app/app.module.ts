@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './login/login.component';
+import { EmployeedetailsdialogComponent } from './employeedetailsdialog/employeedetailsdialog.component';
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import { LoginComponent } from './login/login.component';
     AttendanceDashboardComponent,
     PayrollViewComponent,
     LoginComponent,
+    EmployeedetailsdialogComponent,   
     
   ],
   imports: [

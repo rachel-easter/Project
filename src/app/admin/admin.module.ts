@@ -4,18 +4,24 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminRoutingModule } from '../admin-routing.module';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { EmployeeDetailsDialogComponent } from './employee-details-dialog/employee-details-dialog.component';
 
 
 @NgModule({
   declarations: [
     AdminDashboardComponent,
-    EnrollmentComponent
+    EnrollmentComponent,
+    EmployeedetailsComponent,
+    EmployeeDetailsDialogComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ]
 })
 export class AdminModule { }

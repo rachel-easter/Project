@@ -27,11 +27,11 @@ export class LoginserviceService {
 
         const idExists = document.employees.some((emp: any) => emp.id === employee.id);
         if (idExists) {
-          // If ID already exists, return an observable immediately with an error message
+          
           alert('Employee ID already exists.');
-          return of(null); // Return an observable immediately
+          return of(null); 
         } else {
-          // If ID does not exist, add the employee and return the HTTP request observable
+         
           document.employees.push(employee);
           return this.http.put<any>(url, document, { headers: this.getHeaders() });
         }

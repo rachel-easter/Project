@@ -1,0 +1,100 @@
+<h2>Employee Management</h2>
+<button type="button" class="btn btn-primary" (click)="toggleForm()">Add Employee</button>
+
+<form [formGroup]="employeeForm" *ngIf="showForm" (ngSubmit)="isEditing ? updateEmployee() : addEmployee()">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" formControlName="name" id="name" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="id">ID:</label>
+    <input type="text" formControlName="id" id="id" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="address">Address:</label>
+    <textarea formControlName="address" id="address" class="form-control"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="education">Education:</label>
+    <input type="text" formControlName="education" id="education" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="number" formControlName="phoneNumber" id="phoneNumber" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="type">Employee'sType:</label>
+    <select formControlName="type" id="type" class="form-control" required>
+      <option value="Type1">Grade A</option>
+      <option value="Type2">Grade B</option>
+      <option value="Type3">Grade C</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Gender:</label>
+    <div>
+      <label><input type="radio" formControlName="gender" value="Male" required> Male</label>
+      <label><input type="radio" formControlName="gender" value="Female"> Female</label>
+      <label><input type="radio" formControlName="gender" value="Other"> Other</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="aadharNumber">Aadhar Card Number:</label>
+    <input type="number" formControlName="aadharNumber" id="aadharNumber" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="dob">Date of Birth:</label>
+    <input type="date" formControlName="dob" id="dob" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="nationality">Nationality:</label>
+    <input type="text" formControlName="nationality" id="nationality" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="maritalStatus">Marital Status:</label>
+    <select formControlName="maritalStatus" id="maritalStatus" class="form-control">
+      <option value="Single">Single</option>
+      <option value="Married">Married</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="email">Email ID:</label>
+    <input type="email" formControlName="email" id="email" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="jobTitle">Job Title:</label>
+    <input type="text" formControlName="jobTitle" id="jobTitle" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="startDate">Start Date:</label>
+    <input type="date" formControlName="startDate" id="startDate" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-primary">{{ isEditing ? 'Update' : 'Add' }}</button>
+  <button type="button" class="btn btn-default" (click)="cancelForm()">Cancel</button>
+</form>
+
+<div *ngIf="employees && employees.length > 0">
+    <h3>Employee List</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>ID</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.id }}</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-edit" (click)="editEmployee(employee)">Update</button>
+            <button type="button" class="btn btn-sm btn-delete" (click)="deleteEmployee(employee.id)">Delete</button>
+            <button type="button" class="btn btn-sm btn-view" (click)="viewEmployeeDetails(employee)">View</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+<div *ngIf="!employees || employees.length === 0">
+  <p>Add Employee</p>
+</div>
