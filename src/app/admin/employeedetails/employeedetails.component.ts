@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DetailsService } from 'src/app/service/details.service';
 import { MatDialog } from '@angular/material/dialog';
 
-import { EmployeeDetailsDialogComponent } from '../employee-details-dialog/employee-details-dialog.component';
+import { EmployeeDetailsDialogComponent } from 'src/app/admin/employee-details-dialog/employee-details-dialog.component';
 
 @Component({
   selector: 'app-employeedetails',
@@ -131,7 +131,7 @@ export class EmployeedetailsComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(EmployeedetailsComponent, {
+    const dialogRef = this.dialog.open(EmployeeDetailsDialogComponent, {
       width: '400px', 
       data: this.selectedEmployeeDetails
     });

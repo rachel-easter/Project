@@ -4,11 +4,11 @@
 <form [formGroup]="employeeForm" *ngIf="showForm" (ngSubmit)="isEditing ? updateEmployee() : addEmployee()">
   <div class="form-group">
     <label for="name">Name:</label>
-    <input type="text" formControlName="name" id="name" class="form-control" required>
+    <input type="text" formControlName="name" id="name" class="form-control" required placeholder="Enter the name">
   </div>
   <div class="form-group">
     <label for="id">ID:</label>
-    <input type="text" formControlName="id" id="id" class="form-control" required>
+    <input type="text" formControlName="id" id="id" class="form-control" required placeholder="Enter the ID">
   </div>
   <div class="form-group">
     <label for="address">Address:</label>
@@ -16,11 +16,11 @@
   </div>
   <div class="form-group">
     <label for="education">Education:</label>
-    <input type="text" formControlName="education" id="education" class="form-control">
+    <input type="text" formControlName="education" id="education" class="form-control" placeholder="Enter the Graduated Education">
   </div>
   <div class="form-group">
     <label for="phoneNumber">Phone Number:</label>
-    <input type="number" formControlName="phoneNumber" id="phoneNumber" class="form-control" required>
+    <input type="number" formControlName="phoneNumber" id="phoneNumber" class="form-control" required >
   </div>
   <div class="form-group">
     <label for="type">Employee'sType:</label>
@@ -48,7 +48,7 @@
   </div>
   <div class="form-group">
     <label for="nationality">Nationality:</label>
-    <input type="text" formControlName="nationality" id="nationality" class="form-control">
+    <input type="text" formControlName="nationality" id="nationality" class="form-control"placeholder="Enter the nationality" >
   </div>
   <div class="form-group">
     <label for="maritalStatus">Marital Status:</label>
@@ -59,14 +59,14 @@
   </div>
   <div class="form-group">
     <label for="email">Email ID:</label>
-    <input type="email" formControlName="email" id="email" class="form-control" required>
+    <input type="email" formControlName="email" id="email" class="form-control" required placeholder="Enter the E-mail ID">
   </div>
   <div class="form-group">
     <label for="jobTitle">Job Title:</label>
-    <input type="text" formControlName="jobTitle" id="jobTitle" class="form-control">
+    <input type="text" formControlName="jobTitle" id="jobTitle" class="form-control" placeholder="Enter the Job Profile">
   </div>
   <div class="form-group">
-    <label for="startDate">Start Date:</label>
+    <label for="startDate">Join Date:</label>
     <input type="date" formControlName="startDate" id="startDate" class="form-control" required>
   </div>
   <button type="submit" class="btn btn-primary">{{ isEditing ? 'Update' : 'Add' }}</button>

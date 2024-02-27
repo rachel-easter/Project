@@ -103,4 +103,19 @@ export class DetailsService {
       'Authorization': 'Basic ' + btoa(this.credentials)
     });
   }
+  getFilteredEmployees(attendanceStartRange: string, attendanceEndRange: string): Observable<any[]> {
+    const url = `${this.baseURL}/employeedetails/f4732e216ca2ff20af70060068003cbb`;
+    return this.http.get<any>(url, { headers: this.getHeaders() }).pipe(
+      map(response => {
+        if (response && response.employees) {
+          return response.employees.filter((employee: any) => {
+            const attendanceLevel = parseInt(employee.AttendanceLevel);
+            return attendanceLevel >= parseInt(attendanceStartRange) && attendanceLevel <= parseInt(attendanceEndRange);
+          });
+        } else {
+          return [];
+        }
+      })
+    );
+  }  
 }

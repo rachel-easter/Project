@@ -114,4 +114,7 @@
     width: 70%;
   }
 }
+.mat-mdc-dialog-container{
+  position: relative;
+}
   

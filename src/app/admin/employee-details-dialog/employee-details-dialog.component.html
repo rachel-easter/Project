@@ -1,1 +1,21 @@
-<p>employee-details-dialog works!</p>
+<div class="viewdetails">
+  <button mat-icon-button (click)="closeDialog()">
+    <mat-icon>X</mat-icon>
+  </button>
+<h2>Employee Details</h2>
+<p>Name: {{ data.name }}</p>
+<p>ID: {{ data.id }}</p>
+<p>Address: {{ data.address }}</p>
+<p>Education: {{ data.education }}</p>
+<p>Phone Number: {{ data.phoneNumber }}</p>
+<p>Type: {{ data.type }}</p>
+<p>Gender: {{ data.gender }}</p>
+<p>Aadhar Card Number: {{ data.aadharNumber }}</p>
+<p>Date of Birth: {{ data.dob }}</p>
+<p>Nationality: {{ data.nationality }}</p>
+<p>Marital Status: {{ data.maritalStatus }}</p>
+<p>Email ID: {{ data.email }}</p>
+<p>Job Title: {{ data.jobTitle }}</p>
+<p>Start Date: {{ data.startDate }}</p>
+
+</div>

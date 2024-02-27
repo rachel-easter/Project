@@ -1,0 +1,26 @@
+
+<app-attendance-dashboard></app-attendance-dashboard>
+<br>
+<form [formGroup]="filterForm" (ngSubmit)="filterEmployees()">
+    <label for="startRange">Start Range:</label>
+    <input type="text" id="startRange" formControlName="startRange" placeholder="Enter the InitalValue">
+    <div *ngIf="filterForm.get('startRange')?.invalid && (filterForm.get('startRange')?.dirty || filterForm.get('startRange')?.touched)">
+      <div *ngIf="filterForm.get('startRange')?.errors">Start Range is required</div>
+    </div>
+    
+    <label for="endRange">End Range:</label>
+    <input type="text" id="endRange" formControlName="endRange" placeholder="Enter the FinalValue">
+    <div *ngIf="filterForm.get('endRange')?.invalid && (filterForm.get('endRange')?.dirty || filterForm.get('endRange')?.touched)">
+      <div *ngIf="filterForm.get('endRange')?.errors">End Range is required</div>
+    </div>
+    
+    <button type="submit" [disabled]="filterForm.invalid">Filter</button>
+  </form>
+  
+  <ul>
+    <li *ngFor="let employee of filteredEmployees">{{ employee.name }} 
+        <button (click)="notifyEmployee(employee)">Notify</button>
+        <span *ngIf="employee.notified" class="notification-icon">✓</span>
+    </li>
+  </ul>
+  

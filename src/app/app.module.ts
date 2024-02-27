@@ -14,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './login/login.component';
-import { EmployeedetailsdialogComponent } from './employeedetailsdialog/employeedetailsdialog.component';
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import { EmployeedetailsdialogComponent } from './employeedetailsdialog/employee
     AttendanceDashboardComponent,
     PayrollViewComponent,
     LoginComponent,
-    EmployeedetailsdialogComponent,   
     
   ],
   imports: [
