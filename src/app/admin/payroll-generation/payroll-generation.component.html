@@ -1,0 +1,247 @@
+<div class="payslip-details">
+    <div>
+      <span class="t-bold">Employee Pay Summary&nbsp;</span><span class="mandate">*</span>           
+      <div class="employee-details">
+        <div>
+          Employee Name<span class="float-right pright-medium">:</span>
+        </div>
+        <div>
+          <input class="form-control user-input text-left"  maxlength="50" autofocus="focus" id="employee_name" placeholder="Eg: Rachel" name="employee_name" data-json-node="employee_name" data-is-array="false">
+          <small id="employee_name_err" class="text-danger hide">Enter the Employee's Name</small>
+        </div>
+        <div>
+          Employee ID<span class="float-right pright-medium">:</span>
+        </div>
+        <div>
+          <input class="form-control user-input text-left"  autofocus="focus" id="employee_number" placeholder="Eg: 1234" name="employee_number" data-json-node="employee_number" data-is-array="false">
+          <small id="employee_number_err" class="text-danger hide">Enter the Employee's ID</small>
+        </div>
+        <div>
+          Pay Period<span class="float-right pright-medium">:</span>
+        </div>
+        <div>
+          <input type="text" date-inline-picker="true" class="form-control user-input text-left date-field" autofocus="focus" id="pay_period" name="pay_period" data-json-node="pay_period" placeholder="Eg: April 2022" data-is-array="false" onblur="PayslipGenerator.showHideErr('pay_period_year', false);">
+          <small id="pay_period_err" class="text-danger hide">Enter the Pay Period</small>
+          <small id="pay_period_year_err" class="text-danger hide">Enter a valid year</small>
+        </div>
+        <div>
+          Worked Hours<span class="float-right pright-medium">:</span>
+        </div>
+        <div>
+          <input type="number" min="0" oninput="validity.valid||(value=1);" max="250" class="form-control user-input text-left" autofocus="focus" id="paid_days" placeholder="Eg: 22" name="paid_days" data-json-node="paid_days" data-is-array="false" onfocusout="PayslipGenerator.checkMinAndMax(this)">
+          <small id="paid_days_err" class="text-danger hide">Enter a valid number of days</small>    
+        </div>
+        
+        
+        <div>
+          Pay Date<span class="float-right pright-medium">:</span>
+        </div>
+        <div>
+          <input type="text" date-inline-picker="true" class="form-control user-input text-left date-field" autofocus="focus" id="payment_date" placeholder="Eg: Apr 05 2022" name="payment_date" data-json-node="payment_date" data-is-array="false" onblur="PayslipGenerator.showHideErr('payment_date_year', false);">
+          <small id="payment_date_err" class="text-danger hide">Enter the Payment Date</small>
+          <small id="payment_date_year_err" class="text-danger hide">Enter a valid year</small>
+        </div>
+        <span class="customFieldsClone hide customfield" id="customfield." onmouseover="PayslipGenerator.showCloseIconForCustomField(this,true)" onmouseout="PayslipGenerator.showCloseIconForCustomField(this,false)">
+          <div class="custom-field-name">
+            <input type="text" class="form-control user-input text-left" id="cf_name." name="cf_name." data-json-node="label" data-is-array="true" data-array-parent="custom_fields" placeholder="Name">
+            <span class="float-right pright-medium">:</span>
+          </div>
+          <div class="custom-field-value">
+            <input type="text" class="form-control user-input text-left" id="cf_value." name="cf_value." data-json-node="value" data-is-array="true" data-array-parent="custom_fields" placeholder="Value">
+          </div>
+          <span class="closeicon hide" id="customFieldCloseIcon." title="Delete Row" onclick="PayslipGenerator.removeLineItem(this, 'customfield', 'employee-details', 0)"><svg data-name="Layer 1" viewBox="0 0 512 512" alt="remove-icon" class="remove-svg"><circle cx="256" cy="256" r="215.374" fill="#fad5df"/><path d="M256 492.373A236.373 236.373 0 0188.859 88.86 236.373 236.373 0 11423.141 423.14 234.824 234.824 0 01256 492.373zm0-430.747C148.822 61.626 61.627 148.822 61.627 256S148.822 450.373 256 450.373 450.374 363.178 450.374 256 363.177 61.626 256 61.626z" fill="#db3736"/><path d="M371.13 276.88H140.712a21 21 0 010-42H371.13a21 21 0 010 42z" fill="#db3736"/></svg></span>
+        </span>
+      </div>
+      <div>
+        <div class="add-custom-fields">
+          <span id="add_custom_field" onclick="PayslipGenerator.addCustomFieldLineItem()" tabindex="0" onkeypress="PayslipGenerator.addCustomFieldLineItem()"><svg data-name="Layer 1" viewBox="0 0 512 512" alt="add-icon" class="add-svg"><path d="M256.002 35.635c-121.7 0-220.36 98.66-220.36 220.36 0 121.71 98.66 220.37 220.36 220.37s220.36-98.66 220.36-220.37c0-121.7-98.66-220.36-220.36-220.36zm106.21 242.74h-83.79v83.8a22.5 22.5 0 11-45 0v-83.8h-83.8a22.5 22.5 0 010-45h83.8v-83.79a22.5 22.5 0 0145 0v83.79h83.79a22.5 22.5 0 110 45z" fill="#508eff"/></svg>Add another field</span>
+        </div>
+      </div>
+    </div>
+    <div class="t-bold income-details-header">Income Details&nbsp;<span class="mandate">*</span> 
+    </div> 
+    <div class="income-details">
+      <table class="salary-components-table">
+        <tbody>
+          <tr class="salary-rows">
+            <td width="50%" valign="top" class="t-earning">
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      Earnings
+                    </th>
+                    <th>
+                      Amount
+                    </th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody class="earningsLineItems">
+                  <tr class="trCloneEarnings hide new-earning" id="earnings." onmouseover="PayslipGenerator.showCloseIcon(this,true)" onmouseout="PayslipGenerator.showCloseIcon(this,false)">
+                    <td><input type="text" class="form-control text-left" id="earning_name." name="earning_name." data-json-node="name" data-is-array="true" data-array-parent="earnings" placeholder="Earning Name"></td>
+                    <td>
+                      <input type="number" class="form-control text-right" id="earning_amount." name="earning_amount." data-json-node="amount" data-is-array="true" data-array-parent="earnings" value="0" min="0" oninput="validity.valid||(value=999999999);" max="1000000000" onblur="PayslipGenerator.calculateGrossEarnings()">
+                    </td>
+                    <td><span class="closeicon hide" id="earningItemClose." title="Delete Row" onclick="PayslipGenerator.removeLineItem(this, 'earnings', 'earningsLineItems', 2)"><svg data-name="Layer 1" viewBox="0 0 512 512" alt="remove-icon" class="remove-svg"><circle cx="256" cy="256" r="215.374" fill="#fad5df"/><path d="M256 492.373A236.373 236.373 0 0188.859 88.86 236.373 236.373 0 11423.141 423.14 234.824 234.824 0 01256 492.373zm0-430.747C148.822 61.626 61.627 148.822 61.627 256S148.822 450.373 256 450.373 450.374 363.178 450.374 256 363.177 61.626 256 61.626z" fill="#db3736"/><path d="M371.13 276.88H140.712a21 21 0 010-42H371.13a21 21 0 010 42z" fill="#db3736"/></svg></span></td>
+                  </tr>
+                  <tr id="earnings.1">
+                    <td>
+                      <input type="text" class="form-control text-right" id="earning_name.1" value="Basic" name="earning_name.1" data-json-node="name" data-is-array="true" data-array-parent="earnings" tabindex="-1" readonly>
+                    </td>
+                    <td>
+                      <input type="number" class="form-control text-right" id="earning_amount.1" name="earning_amount.1" data-json-node="amount" data-is-array="true" data-array-parent="earnings" value="0" min="0" oninput="validity.valid||(value=999999999);" max="1000000000" onblur="PayslipGenerator.calculateGrossEarnings()">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr id="earnings.2">
+                    <td>
+                      <input type="text" class="form-control text-right" id="earning_name.2" value="House Rent Allowance" name="earning_name.2" data-json-node="name" data-is-array="true" data-array-parent="earnings" tabindex="-1" readonly>
+                    </td>
+                    <td>
+                      <input type="number" class="form-control text-right" id="earning_amount.2" name="earning_amount.2" data-json-node="amount" data-is-array="true" data-array-parent="earnings" value="0" min="0" oninput="validity.valid||(value=999999999);" max="1000000000" onblur="PayslipGenerator.calculateGrossEarnings()">
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr><td class="add-earnings" colspan="2"><span id="add_earnings" onclick="PayslipGenerator.addEarningsLineItem()" tabindex="0" onkeypress="PayslipGenerator.addEarningsLineItem()"><svg data-name="Layer 1" viewBox="0 0 512 512" alt="add-icon" class="add-svg"><path d="M256.002 35.635c-121.7 0-220.36 98.66-220.36 220.36 0 121.71 98.66 220.37 220.36 220.37s220.36-98.66 220.36-220.37c0-121.7-98.66-220.36-220.36-220.36zm106.21 242.74h-83.79v83.8a22.5 22.5 0 11-45 0v-83.8h-83.8a22.5 22.5 0 010-45h83.8v-83.79a22.5 22.5 0 0145 0v83.79h83.79a22.5 22.5 0 110 45z" fill="#508eff"/></svg>Add Earnings</span></td></tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>
+                      Gross Earnings
+                    </td>
+                    <td class="text-right">
+                      Rs. <span id="gross_earning_mob" name="gross_earning" data-json-node="gross_earning">0</span>
+                    </td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </td>
+            <td width="50%" valign="top" class="t-deduction">
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      Deductions
+                    </th>
+                    <th>
+                      Amount
+                    </th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody class="deductionsLineItems">
+                  <tr class="trCloneDeductions hide new-earning" id="deductions." onmouseover="PayslipGenerator.showCloseIcon(this,true)" onmouseout="PayslipGenerator.showCloseIcon(this,false)">
+                    <td>
+                      <input type="text" class="form-control earning text-left" id="deduction_name." name="deduction_name." data-json-node="name" data-is-array="true" data-array-parent="deductions" placeholder="Deduction Name">
+                    </td>
+                    <td>
+                      <input type="number" class="form-control text-right" id="deduction_amount." name="deduction_amount." data-json-node="amount" data-is-array="true" data-array-parent="deductions" value="0" min="0" oninput="validity.valid||(value=999999999);" max="1000000000" onblur="PayslipGenerator.calculateTotalDeductions()">
+                    </td>
+                    <td><span class="closeicon hide" id="deductionItemClose." title="Delete Row" onclick="PayslipGenerator.removeLineItem(this, 'deductions', 'deductionsLineItems', 2)"><svg data-name="Layer 1" viewBox="0 0 512 512" alt="remove-icon" class="remove-svg"><circle cx="256" cy="256" r="215.374" fill="#fad5df"/><path d="M256 492.373A236.373 236.373 0 0188.859 88.86 236.373 236.373 0 11423.141 423.14 234.824 234.824 0 01256 492.373zm0-430.747C148.822 61.626 61.627 148.822 61.627 256S148.822 450.373 256 450.373 450.374 363.178 450.374 256 363.177 61.626 256 61.626z" fill="#db3736"/><path d="M371.13 276.88H140.712a21 21 0 010-42H371.13a21 21 0 010 42z" fill="#db3736"/></svg></span></td>
+                  </tr>
+                  <tr id="deductions.1">
+                    <td>
+                      <input type="text" class="form-control text-right" id="deduction_name.1" name="deduction_name.1" value="Income Tax" data-json-node="name" data-is-array="true" data-array-parent="deductions" tabindex="-1" readonly>
+                    </td>
+                    <td>
+                      <input type="number" class="form-control text-right" id="deduction_amount.1" name="deduction_amount.1" data-json-node="amount" data-is-array="true" data-array-parent="deductions" value="0" min="0" oninput="validity.valid||(value=999999999);" max="1000000000" onblur="PayslipGenerator.calculateTotalDeductions()">
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr id="deductions.2">
+                    <td>
+                      <input type="text" class="form-control text-right" id="deduction_name.2" name="deduction_name.2" value="Provident Fund" data-json-node="name" data-is-array="true" data-array-parent="deductions" tabindex="-1" readonly>
+                    </td>
+                    <td>
+                      <input type="number" class="form-control text-right" id="deduction_amount.2" name="deduction_amount.2" data-json-node="amount" data-is-array="true" data-array-parent="deductions" value="0" min="0" oninput="validity.valid||(value=999999999);" max="1000000000" onblur="PayslipGenerator.calculateTotalDeductions()">
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr><td class="add-deductions" colspan="2"><span id="add_deductions" onclick="PayslipGenerator.addDeductionsLineItem()" tabindex="0" onkeypress="PayslipGenerator.addDeductionsLineItem()"><svg data-name="Layer 1" viewBox="0 0 512 512" alt="add-icon" class="add-svg"><path d="M256.002 35.635c-121.7 0-220.36 98.66-220.36 220.36 0 121.71 98.66 220.37 220.36 220.37s220.36-98.66 220.36-220.37c0-121.7-98.66-220.36-220.36-220.36zm106.21 242.74h-83.79v83.8a22.5 22.5 0 11-45 0v-83.8h-83.8a22.5 22.5 0 010-45h83.8v-83.79a22.5 22.5 0 0145 0v83.79h83.79a22.5 22.5 0 110 45z" fill="#508eff"/></svg>Add Deductions</span></td></tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>
+                      Total Deductions
+                    </td>
+                    <td class="text-right">
+                      Rs. <span id="total_deduction_mob" name="total_deduction" data-json-node="total_deduction">0</span>
+                    </td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <table class="footer-table">
+        <tr>
+          <td width="50%">
+            <table>
+              <tr>
+                <td>
+                  Gross Earnings
+                </td>
+                <td class="text-right">
+                  Rs. <span id="gross_earning" name="gross_earning" data-json-node="gross_earning">0</span>
+                </td>
+                <td></td>
+              </tr>
+            </table>
+          </td>
+          <td width="50%">
+            <table>
+              <tr>
+                <td>
+                  Total Deductions
+                </td>
+                <td class="text-right">
+                  Rs. <span id="total_deduction" name="total_deduction" data-json-node="total_deduction">0</span>
+                </td>
+                <td></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="net-pay">
+      <table>
+        <tbody>
+          <td class="text-left">
+            <div>Total Net Payable</div>
+            <div class="help-text">Gross Earnings - Total Deductions</div>
+          </td>
+          <td class="text-right">
+            <b>Rs. <span class="hide" id="net_pay" name="net_pay" data-json-node="net_pay">0</span><span id="net_pay_formatted">0</span></b>
+        </td>
+      </tbody>
+    </table>
+    <div class="text-right amount-in-words">
+      Amount in words :
+      <span id="amount-in-words" class="text-semibold"></span>
+      <span id="net_pay_err" class="hide text-danger">&nbsp;Amount is less than or equal to zero.</span>
+    </div>
+  </div>
+
+<div class="generate-payslip">
+  <button id="generate-payslip-button" (click)="onSumbit()">Generate Payslip</button>
+  <button class="reset-button" (click)="resetPayslip()">
+    <svg data-name="Layer 1" viewBox="0 0 512 512" alt="reset" class="reset-svg"><path d="M57.636 361.034a21.003 21.003 0 01-19.333-12.8A236.462 236.462 0 01365.857 46.656a21 21 0 11-19.545 37.176A194.774 194.774 0 00256 61.626C148.821 61.626 61.626 148.822 61.626 256a194.709 194.709 0 005.242 45.102l20.949-20.949a21 21 0 0129.699 29.698l-45.03 45.032a21 21 0 01-14.85 6.15zM256 492.374a236.725 236.725 0 01-112.685-28.541 21 21 0 1120.05-36.907A194.593 194.593 0 00256 450.374c107.178 0 194.374-87.196 194.374-194.374a194.685 194.685 0 00-5.2-44.922l-19.865 19.866a21 21 0 01-29.699-29.7l43.972-43.97a21 21 0 0134.188 6.664A236.43 236.43 0 01256 492.374z" fill="#010101"/></svg>
+    Reset
+</button>
+</div>
+
+</div>
+
+  
+  
+  

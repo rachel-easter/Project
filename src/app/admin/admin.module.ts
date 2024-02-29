@@ -12,6 +12,7 @@ import { EmployeeDetailsDialogComponent } from './employee-details-dialog/employ
 import { MatIconModule } from '@angular/material/icon';
 import { AttendanceManagementComponent } from './attendance-management/attendance-management.component';
 import { AttendanceDashboardComponent } from './attendance-dashboard/attendance-dashboard.component';
+import { PayrollGenerationComponent } from './payroll-generation/payroll-generation.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AttendanceDashboardComponent } from './attendance-dashboard/attendance-
     EmployeedetailsComponent,
     EmployeeDetailsDialogComponent,
     AttendanceManagementComponent,
-    AttendanceDashboardComponent
+    AttendanceDashboardComponent,
+    PayrollGenerationComponent
   ],
   imports: [
     CommonModule,

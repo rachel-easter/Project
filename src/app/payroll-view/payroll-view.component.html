@@ -2,19 +2,28 @@
 <form [formGroup]="payrollForm" (ngSubmit)="generatePayslip()">
   <div class="form-group">
     <label for="employeeName">Employee Name:</label>
-    <input type="text" formControlName="employeeName" id="employeeName">
+    <input type="text" formControlName="employeeName" id="employeeName" required (input)="onNameInput($event)">
+    <div *ngIf="payrollForm.get('employeeName')?.errors && payrollForm.get('employeeName')?.touched">
+      <p class="error-message">Employee name is required</p>
+    </div>
+    <div *ngIf="nameContainsNumber" class="error-message">
+      <p>Only alphabets are allowed</p>
+    </div>
   </div>
+
   <div class="form-group">
     <label for="employeeId">Employee ID:</label>
-    <!-- Display employeeId from employeeDocument if it exists -->
-    <input type="text" [value]="employeeDocument?.employeeId" id="employeeId">
+    <input type="text" formControlName="employeeId" id="employeeId">
   </div>
+
   <div class="form-group">
     <label for="month">Month:</label>
     <input type="month" formControlName="month" id="month">
   </div>
-  <button type="submit" >Generate Payslip</button>
+
+  <button type="submit" [disabled]="!checkAllFieldsFilled()">Generate Payslip</button>
 </form>
+
 <div *ngIf="employeeDocument">
 
   <p>Employee Name: {{ employeeDocument?.employeeName }}</p>

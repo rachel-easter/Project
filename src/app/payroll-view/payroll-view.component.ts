@@ -14,6 +14,8 @@ export class PayrollViewComponent {
   @ViewChild('content') content!: ElementRef;
   payrollForm: FormGroup;
   employeeDocument: any = null;
+  nameContainsNumber: boolean = false;
+  isButtonDisabled: boolean = true;
 
   constructor(private fb: FormBuilder, private couchDBService: CouchDBService) {
     this.payrollForm = this.fb.group({
@@ -36,6 +38,7 @@ export class PayrollViewComponent {
         if (data && data.docs && data.docs.length > 0) {
           this.employeeDocument = data.docs[0];
           console.log(data.docs);
+          this.isButtonDisabled = false;
         } else {
           console.log('Employee not found.');
         }
@@ -71,5 +74,16 @@ export class PayrollViewComponent {
     const doc = new jsPDF();
     doc.text(content, 10, 10);
     doc.save('employee_data.pdf');
+  }
+
+
+  onNameInput(event: any): void {
+    const inputText = event.target.value;
+    this.nameContainsNumber = /\d/.test(inputText);
+  }
+  checkAllFieldsFilled() {
+    // Check if all fields in the form are filled
+    const { employeeName, employeeId, month } = this.payrollForm.value;
+    return employeeName && employeeId && month;
   }
 }

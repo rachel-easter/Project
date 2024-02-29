@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 
 import { AttendanceDashboardComponent } from './attendance-dashboard/attendance-dashboard.component';
 import { PayrollViewComponent } from './payroll-view/payroll-view.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AdminModule } from './admin/admin.module';
@@ -32,6 +32,7 @@ import { LoginComponent } from './login/login.component';
     AdminModule,
     HttpClientModule,
     ReactiveFormsModule,  
+    FormsModule
   
   ],
   providers: [],

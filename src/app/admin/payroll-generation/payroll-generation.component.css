@@ -1,0 +1,490 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+  }
+  
+  .payslip-details {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .t-bold {
+    font-weight: bold;
+  }
+  
+  .mandate {
+    color: #db3736; /* Red color for the mandate asterisk */
+  }
+  
+  .employee-details {
+    margin-top: 20px;
+  }
+  
+  .employee-details > div {
+    margin-bottom: 15px;
+  }
+  
+  .float-right {
+    float: right;
+  }
+  .add-svg{
+    width:10px;
+    height:10px;
+   
+  }
+  .add-custom-fields span svg {
+    width: 16px; /* Adjust the width of the SVG icon */
+    height: 16px; /* Adjust the height of the SVG icon */
+    margin-right: 5px; /* Optional: Add some spacing between the icon and text */
+  }
+  
+  .add-custom-fields span:hover {
+    background-color: #386fca;
+  }
+  
+  .form-control {
+    width: calc(100% - 25px); /* Adjusting input width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #508eff; /* Blue color for focus border */
+    box-shadow: 0 0 5px rgba(80, 142, 255, 0.5);
+  }
+  
+  .text-left {
+    text-align: left;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .text-danger {
+    color: #db3736; /* Red color for error messages */
+  }
+  
+  /* Customizing the close icon */
+  .closeicon {
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+  }
+  
+  /* Styling the add field button */
+  .add-custom-fields span {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #508eff; /* Blue color for button background */
+    color: #fff; /* White color for button text */
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-custom-fields span:hover {
+    background-color: #386fca; /* Darker blue color on hover */
+  }
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+  }
+  
+  /* Form container */
+  .payslip-details {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  /* Bold text */
+  .t-bold {
+    font-weight: bold;
+  }
+  
+  /* Mandate asterisk */
+  .mandate {
+    color: #db3736;
+  }
+  
+  /* Employee details section */
+  .employee-details {
+    margin-top: 20px;
+  }
+  
+  /* Individual form field */
+  .employee-details > div {
+    margin-bottom: 15px;
+  }
+  
+  /* Float right for labels */
+  .float-right {
+    float: right;
+  }
+  
+  /* Form control styles */
+  .form-control {
+    width: calc(100% - 25px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #508eff;
+    box-shadow: 0 0 5px rgba(80, 142, 255, 0.5);
+  }
+  
+  .text-left {
+    text-align: left;
+  }
+  
+  /* Error message styles */
+  .text-danger {
+    color: #db3736;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  /* Custom field styles */
+  .custom-field-name,
+  .custom-field-value {
+    display: inline-block;
+    width: 45%;
+  }
+  
+  .custom-field-name input,
+  .custom-field-value input {
+    width: calc(100% - 25px);
+  }
+  
+  /* Close icon styles */
+  .closeicon {
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+  }
+  
+  /* Add field button styles */
+  .add-custom-fields span {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #508eff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-custom-fields span:hover {
+    background-color: #386fca;
+  }
+    /* Add custom fields container */
+.add-custom-fields {
+    margin-top: 20px;
+  }
+  
+  /* Add field button */
+  .add-custom-fields span {
+    display: inline-block;
+    padding: 5px 5px;
+    background-color: #508eff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-custom-fields span:hover {
+    background-color: #386fca;
+  }
+  
+  /* Income details container */
+  .income-details {
+    margin-top: 20px;
+  }
+  
+  /* Table styles */
+  .salary-components-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .salary-components-table th,
+  .salary-components-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .salary-components-table th {
+    text-align: left;
+  }
+  
+  /* Earnings table */
+  .earningsLineItems .trCloneEarnings,
+  .earningsLineItems tr:not(:last-child) {
+    border-bottom: 2px solid #f0f0f0;
+  }
+  
+  .earningsLineItems .trCloneEarnings {
+    background-color: #f9f9f9;
+  }
+  
+  /* Input fields within the earnings table */
+  .earningsLineItems input[type="text"],
+  .earningsLineItems input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Close icon within the earnings table */
+  .closeicon {
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+  }
+  
+  /* Add earnings button */
+  .add-earnings span {
+    display: inline-block;
+    padding: 5px 5px;
+    background-color: #508eff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-earnings span:hover {
+    background-color: #386fca;
+  }
+  
+  /* Total gross earnings */
+  tfoot td {
+    font-weight: bold;
+  }
+/* Deductions table */
+.deductionsLineItems .trCloneDeductions,
+.deductionsLineItems tr:not(:last-child) {
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.deductionsLineItems .trCloneDeductions {
+  background-color: #f9f9f9;
+}
+
+/* Input fields within the deductions table */
+.deductionsLineItems input[type="text"],
+.deductionsLineItems input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Close icon within the deductions table */
+.closeicon {
+  cursor: pointer;
+  position: relative;
+  top: 5px;
+}
+
+/* Total deductions */
+tfoot td {
+  font-weight: bold;
+}
+/* Additional deductions table rows */
+.deductionsLineItems tr:not(:last-child) {
+    border-bottom: 2px solid #f0f0f0;
+  }
+  
+  /* Input fields within additional deductions table */
+  .deductionsLineItems input[type="text"],
+  .deductionsLineItems input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Close icon within additional deductions table */
+  .closeicon {
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+  }
+  
+  /* Total deductions */
+  tfoot td {
+    font-weight: bold;
+  }
+/* Footer table */
+.footer-table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Table cells */
+  .footer-table td {
+    vertical-align: top;
+    padding: 10px;
+  }
+  
+  /* Inner tables */
+  .footer-table table {
+    width: 100%;
+  }
+  
+  /* Text alignment and spacing for table cells */
+  .footer-table td:nth-child(2) {
+    text-align: right;
+    padding-left: 20px; /* Add some spacing between text and value */
+  }
+  
+  /* Bold font for text in table cells */
+  .footer-table td {
+    font-weight: bold;
+  }
+/* Net pay section */
+.net-pay {
+    margin-top: 20px;
+  }
+  
+  /* Inner table */
+  .net-pay table {
+    width: 100%;
+  }
+  
+  /* Table cells */
+  .net-pay td {
+    vertical-align: top;
+  }
+  
+  /* Left-aligned text */
+  .net-pay .text-left {
+    text-align: left;
+  }
+  
+  /* Right-aligned text */
+  .net-pay .text-right {
+    text-align: right;
+  }
+  
+  /* Help text */
+  .net-pay .help-text {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  /* Bold formatting for the total net payable amount */
+  .net-pay b {
+    font-weight: bold;
+  }
+  
+  /* Amount in words */
+  .amount-in-words {
+    margin-top: 10px;
+  }
+  
+  /* Error message */
+  .net-pay .text-danger {
+    color: #dc3545;
+    font-size: 12px;
+  }
+/* Generate payslip button */
+.generate-payslip {
+  margin-bottom: 20px;
+}
+
+#generate-payslip-button {
+  padding: 10px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.generate-payslip button:hover {
+  background-color: #79060c;
+}
+
+
+/* Reset button */
+.reset-button {
+    padding: 5px; /* Adjust padding as needed */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-left: 15px; /* Add transition for hover effect */
+  }
+  
+  .reset-button svg {
+    width: 16px; /* Set the width of the SVG icon */
+    height: 16px; /* Set the height of the SVG icon */
+    vertical-align: middle;
+  }
+  
+  .reset-button:hover {
+    transform: scale(1.1); /* Add a slight scale effect on hover */
+  }
+  
+
+/* Payslip content */
+.payslip-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+
+/* Horizontal rule */
+hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+/* Add deductions button */
+.add-deductions {
+    text-align: center;
+  }
+  
+  .add-deductions span {
+    display: inline-block;
+    padding: 5px 5px;
+    background-color: #508eff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-deductions span svg {
+    width: 10px; /* Adjust the width of the SVG icon */
+    height: 10px; /* Adjust the height of the SVG icon */
+    vertical-align: middle;
+    margin-right: 5px; /* Add some spacing between the icon and text */
+  }
+  
+  .add-deductions span:hover {
+    background-color: #386fca;
+  }
+  

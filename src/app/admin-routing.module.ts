@@ -5,11 +5,13 @@ import { AdminDashboardComponent } from 'src/app/admin/admin-dashboard/admin-das
 import { EnrollmentComponent } from './admin/enrollment/enrollment.component';
 import{ EmployeedetailsComponent}from'src/app/admin/employeedetails/employeedetails.component';
 import { AttendanceManagementComponent } from 'src/app/admin/attendance-management/attendance-management.component';
+import{PayrollGenerationComponent} from 'src/app/admin/payroll-generation/payroll-generation.component';
 const routes: Routes = [
  // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'admin', component: EnrollmentComponent },
   { path:'userdetails',component: EmployeedetailsComponent},
-  {path:'adminattendance',component:AttendanceManagementComponent}
+  {path:'adminattendance',component:AttendanceManagementComponent},
+  {path:'adminpayroll',component:PayrollGenerationComponent},
 ];
 
 @NgModule({
