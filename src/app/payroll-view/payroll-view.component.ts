@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CouchDBService } from 'src/app/service/couchdb.service';
+import { PayrollService } from 'src/app/service/payroll.service';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { saveAs } from 'file-saver';
@@ -17,31 +17,37 @@ export class PayrollViewComponent {
   nameContainsNumber: boolean = false;
   isButtonDisabled: boolean = true;
 
-  constructor(private fb: FormBuilder, private couchDBService: CouchDBService) {
+  constructor(private fb: FormBuilder, private PayrollService: PayrollService) {
     this.payrollForm = this.fb.group({
       employeeName: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
-      employeeId: [''],
+      employeeID: [''],
       month: ['', Validators.required]
     });
   }
 
   generatePayslip() {
+    console.log('Generating payslip...');
     const employeeName = this.payrollForm.get('employeeName')?.value;
+    console.log('Employee Name:', employeeName);
+    const employeeID = this.payrollForm.get('employeeID')?.value;
     if (this.payrollForm.invalid) {
       alert('Please fill out all fields before generating the payslip.');
       return;
     }
 
-    this.couchDBService.getEmployeeByName(employeeName).subscribe(
+    this.PayrollService.getEmployeeByName(employeeName,employeeID).subscribe(
       (data: any) => {
         console.log('Response from CouchDB:', data);
-        if (data && data.docs && data.docs.length > 0) {
-          this.employeeDocument = data.docs[0];
+        if (data && data.length > 0) {
+          this.employeeDocument = data[0];
           console.log(data.docs);
           this.isButtonDisabled = false;
         } else {
-          console.log('Employee not found.');
+          alert('Employee not found.');
+          this.employeeDocument = null;
+        this.isButtonDisabled = true;
         }
+        
       },
       (error: any) => {
         console.error('Error:', error);
@@ -83,7 +89,8 @@ export class PayrollViewComponent {
   }
   checkAllFieldsFilled() {
     // Check if all fields in the form are filled
-    const { employeeName, employeeId, month } = this.payrollForm.value;
-    return employeeName && employeeId && month;
+    const { employeeName, employeeID, month } = this.payrollForm.value;
+    return employeeName && employeeID && month;
   }
 }
+//need to wite logic for month and year

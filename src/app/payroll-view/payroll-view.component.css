@@ -24,4 +24,37 @@
     cursor: pointer;
   }
   
+  .netpay{
+    color:red;
+    font-size: 1rem;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
   
+  /* Style table header */
+  th {
+    border: 2px solid black; /* Add bold borders */
+    padding: 8px; /* Add padding */
+    text-align: left;
+  }
+  
+  /* Style table cells */
+  td {
+    border: 1px solid black; /* Add borders */
+    padding: 8px; /* Add padding */
+    text-align: left;
+  }
+.download{
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}  
+.download:hover{
+  background-color: #0056b3;
+}

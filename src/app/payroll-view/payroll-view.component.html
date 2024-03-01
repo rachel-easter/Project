@@ -12,8 +12,8 @@
   </div>
 
   <div class="form-group">
-    <label for="employeeId">Employee ID:</label>
-    <input type="text" formControlName="employeeId" id="employeeId">
+    <label for="employeeID">Employee ID:</label>
+    <input type="text" formControlName="employeeID" id="employeeID">
   </div>
 
   <div class="form-group">
@@ -27,43 +27,38 @@
 <div *ngIf="employeeDocument">
 
   <p>Employee Name: {{ employeeDocument?.employeeName }}</p>
-  <p>Employee ID: {{ employeeDocument?.employeeId }}</p>
+  <p>Employee ID: {{ employeeDocument?.employeeID }}</p>
   <!--<p>{{ employeeDocument | json }}</p>-->
   <table>
     <thead>
       <tr>
         <th>Employee Name</th>
         <th>Employee ID</th>
-        <th>Aadhar</th>
-        <th>PAN</th>
-        <th>Join Date</th>
-        <th>Designation</th>
+        <th>PayPeriod</th>
+        <th>WorkedHours</th>
+        <th>PayDate</th>
         <th>Basic Pay</th>
-        <th>Salary Days</th>
-        <th>Total Days</th>
-        <th>LOP</th>
-        <th>Deduction</th>
-        <th>Net</th>
-        <th>Net Words</th>
+        <th>HRA</th>
+        <th>IncomeTax</th>
+        <th>ProvidentFund</th>
+        <th class="netpay">NetPay</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>{{ employeeDocument?.employeeName }}</td>
-        <td>{{ employeeDocument?.employeeId }}</td>
-        <td>{{ employeeDocument?.aadhar }}</td>
-        <td>{{ employeeDocument?.pan }}</td>
-        <td>{{ employeeDocument?.joinDate }}</td>
-        <td>{{ employeeDocument?.designation }}</td>
+        <td>{{ employeeDocument?.employeeID }}</td>
+        <td>{{ employeeDocument?.payPeriod }}</td>
+        <td>{{ employeeDocument?.workedHours }}</td>
+        <td>{{ employeeDocument?.payDate }}</td>
         <td>{{ employeeDocument?.basicPay }}</td>
-        <td>{{ employeeDocument?.salaryDays }}</td>
-        <td>{{ employeeDocument?.TotalDays }}</td>
-        <td>{{ employeeDocument?.lop }}</td>
-        <td>{{ employeeDocument?.deduction }}</td>
-        <td>{{ employeeDocument?.Net }}</td>
-        <td>{{ employeeDocument?.NetWords }}</td>
+        <td>{{ employeeDocument?.hra }}</td>
+        <td>{{ employeeDocument?.incomeTax }}</td>
+        <td>{{ employeeDocument?.providentFund }}</td>
+        <td>{{ employeeDocument?.netPayable }}</td>
+        
       </tr>
     </tbody>
   </table>
-  <button (click)="downloadTableData()">Download</button>
+  <button  class="download"(click)="downloadTableData()">Download</button>
 </div>

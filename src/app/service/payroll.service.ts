@@ -1,71 +1,58 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class PayrollService {
+  private baseURL = 'http://127.0.0.1:5984'; // CouchDB URL
+  private credentials = 'admin:admin'; // CouchDB credentials
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  // Method to calculate salary details and log the results
-  calculateSalary(workedHours: number, basicPay: number, hra: number, incomeTax: number, providentFund: number): SalaryDetails {
-    let grossEarnings = 0;
-    let totalDeduction = 0;
-    let totalNetPayable = 0;
+  addPayrollDetails(payrollData: any): Observable<any> {
+    const documentId = 'cb4ff555dcd201de0cb6c0b3b2000231'; // Your document ID in CouchDB
+    const url = `${this.baseURL}/payrolldetails/${documentId}`;
+    return this.http.get<any>(url, { headers: this.getHeaders() }).pipe(
+      switchMap((document: any) => {
+        if (!document._id) {
+          document._id = documentId;
+        }
+        if (!document.payrolls) {
+          document.payrolls = [];
+        }
 
-    // Calculate gross earnings based on basic pay and HRA
-    grossEarnings = basicPay + hra;
+        document.payrolls.push(payrollData);
 
-    // Apply deductions based on income tax and provident fund
-    totalDeduction = this.calculateDeduction(workedHours, grossEarnings, incomeTax, providentFund);
-
-    // Calculate total net payable
-    totalNetPayable = grossEarnings - totalDeduction;
-
-    // Log the results in the console
-    console.log('Gross Earnings:', grossEarnings);
-    console.log('Total Deduction:', totalDeduction);
-    console.log('Total Net Payable:', totalNetPayable);
-
-    // Return calculated values
-    return {
-      grossEarnings: grossEarnings,
-      totalDeduction: totalDeduction,
-      totalNetPayable: totalNetPayable
-    };
+        return this.http.put<any>(url, document, { headers: this.getHeaders() });
+      })
+    );
   }
+  getEmployeeByName(employeeName: string,employeeID:string): Observable<any> {
+    const documentId = 'cb4ff555dcd201de0cb6c0b3b2000231';
+    const url=`${this.baseURL}/payrolldetails/${documentId}`;
 
-  // Method to calculate deductions
-  private calculateDeduction(workedHours: number, grossEarnings: number, incomeTax: number, providentFund: number): number {
-    // Implement your deduction logic here based on worked hours, gross earnings, income tax, and provident fund
-    let totalDeduction = 0;
-
-    // Implement your deduction logic based on the provided details
-    // For example:
-    if (workedHours >= 248) {
-      totalDeduction = 0;
-    } else if (workedHours >= 200) {
-      totalDeduction = grossEarnings * 0.05;
-    } else if (workedHours >= 150) {
-      totalDeduction = grossEarnings * 0.10;
-    } else if (workedHours >= 100) {
-      totalDeduction = grossEarnings * 0.20;
-    } else if (workedHours >= 50) {
-      totalDeduction = grossEarnings * 0.50;
-    } else {
-      totalDeduction = 0; // No salary
-    }
-
-    // Add additional deductions such as income tax and provident fund
-    totalDeduction += incomeTax + providentFund;
-
-    return totalDeduction;
+    return this.http.get<any>(url, { headers: this.getHeaders() }).pipe(
+      switchMap((document: any) => {
+        if (!document || !document.payrolls || !Array.isArray(document.payrolls)) {
+          // Handle the case where the document or payrolls array is missing or not an array
+          console.error('Invalid document structure:', document);
+          return of([]);
+        }
+  
+        const filteredPayrolls = document.payrolls.filter((payroll: any) =>
+          payroll.employeeName === employeeName && payroll.employeeID === employeeID
+        );
+        return of(filteredPayrolls);
+      })
+    );
   }
-}
-
-// Interface for holding salary details
-export interface SalaryDetails {
-  grossEarnings: number;
-  totalDeduction: number;
-  totalNetPayable: number;
+  private getHeaders(): HttpHeaders {
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic ' + btoa(this.credentials)
+    });
+  }
+  
 }
